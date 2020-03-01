@@ -1,4 +1,6 @@
 ---
+pollinginterval: 3600
+interval: 7200
 influxdb:
   host: "127.0.0.1"
   database: 'hydro'
