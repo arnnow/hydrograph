@@ -1,0 +1,10 @@
+---
+influxdb:
+  host: "127.0.0.1"
+  database: 'hydro'
+  password: 'hydro'
+# Hubeau
+hubeau:
+  base_url: 'http://hubeau.eaufrance.fr'
+  base_uri: '/api/v1/hydrometrie/'
+  departement: ['35','79']
