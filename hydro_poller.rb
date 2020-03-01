@@ -52,7 +52,7 @@ while true
 
 		stations_list = @hubeau.getStations(code_site: site['code_site'])
 		stations_list.each do |station|
-		    observations_tr = @hubeau.getObservations_tr(code_entite: station['code_station'], date_debut_obs: period.strftime('%Y-%m-%dT%H:%M:%S.%L%z'))
+		    observations_tr = @hubeau.getObservations_tr(code_entite: station['code_station'], date_debut_obs: period.strftime('%Y-%m-%dT%H:%M:%S.%L%z'), size: "100")
 		    $log.info "Polling "+station['code_departement']+" Site: " +  site['libelle_site'] + " - Station: " + station['libelle_station'] + " ("+station['code_station']+"): " + observations_tr.length.to_s + " Observations" 
 		    observations_tr.each do |observation|
 		
@@ -80,7 +80,6 @@ while true
 			    }
 		
 			    updatehydro(payload,station['libelle_region'])
-			    sleep(0.8)
 		    end
 		end
 	end
