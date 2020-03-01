@@ -3,4 +3,4 @@
 pulling data from http://hubeau.eaufrance.fr/page/api-hydrometrie
 and pushing it into influxDB
 
-[Grafana](img/Hydrograph.png)
+![Grafana](img/Hydrograph.png)
