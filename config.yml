@@ -9,4 +9,4 @@ influxdb:
 hubeau:
   base_url: 'http://hubeau.eaufrance.fr'
   base_uri: '/api/v1/hydrometrie/'
-  departement: ['35','79']
+  departement: ['35','79','44','85','22','29','56','53']
