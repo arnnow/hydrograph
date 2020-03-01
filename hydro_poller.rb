@@ -55,17 +55,17 @@ while true
 		    observations_tr = @hubeau.getObservations_tr(code_entite: station['code_station'], date_debut_obs: period.strftime('%Y-%m-%dT%H:%M:%S.%L%z'), size: "100")
 		    $log.info "Polling "+station['code_departement']+" Site: " +  site['libelle_site'] + " - Station: " + station['libelle_station'] + " ("+station['code_station']+"): " + observations_tr.length.to_s + " Observations" 
 		    observations_tr.each do |observation|
-		
+			    epoch = Time.iso8601(observation['date_obs']).to_i
 			    payload = {
 				    "values": {
-					    "epoch":	 		Time.iso8601(observation['date_obs']).to_i,
+					    "epoch":	 		epoch,
 					    "resultat_obs": 		observation['resultat_obs'],
-					    "longitude_station":	station['longitude_station'],
-					    "latitude_station":		station['latitude_station'],
 				    },
-				    "timestamp": Time.iso8601(observation['date_obs']).to_i,
+				    "timestamp": epoch,
 				    "tags": {
 					    "source": 			"hubeau",
+					    "longitude_station":	station['longitude_station'],
+					    "latitude_station":		station['latitude_station'],
 					    "libelle_station": 		station['libelle_station'],
 					    "libelle_site":		site['libelle_site'],
 					    "libelle_commune":		station['libelle_commune'],
