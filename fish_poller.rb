@@ -47,9 +47,6 @@ HUBEAU_CONFIGURATION = config['hubeau_poissons']
 
 while true
 	annees = (config['hubeau_poissons']['since'].to_i...Time.now.year.to_i + 1).step(1).to_a.join(',')
-	deps = (1...95).step(1).to_a.join(',')
-	puts deps
-	exit
 	departements = config['hubeau_poissons']['departement']
 	poissons = config['hubeau_poissons']['poissons']
 	departements.each do |departement|
